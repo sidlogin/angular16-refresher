@@ -1,0 +1,8 @@
+<div class="note-list">
+    <div *ngFor="let note of notes$ | async" class="note">
+        <h2>{{note.title}}</h2>
+        <h2>{{note.content}}</h2>
+        <button (click)="editNote(note)" class="btn btn-primary">Edit</button> &nbsp;
+        <button (click)="deleteNote(note.id)" class="btn btn-primary">Delete</button>
+    </div>
+</div>

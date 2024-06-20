@@ -1,0 +1,13 @@
+<div class="note-form">
+    <h2>Add New Note</h2>
+
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+        <label for="title"></label>
+        <input type="text" name="title" placeholder="Title" formControlName="title" />
+
+        <label for="content"></label>
+        <input type="text" name="content" placeholder="Add content.." formControlName="content" />
+
+        <button type="submit">{{isEdit ? 'Edit Note': 'Add Note'}}</button>
+    </form>
+</div>
