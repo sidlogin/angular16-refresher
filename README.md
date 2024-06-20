@@ -21,29 +21,24 @@ example: <button [disabled]="isDisabled">Dashboard</button>
 </div>
 
 ## Directives:
-===========
 
-1. Attribute Directives
+### Attribute Directives
 myClassName:string = 'add-me';
 <div [ngClass]="myClassName"> </div>
 
 myStyle = {color: '#ccc'};
 <div [ngSytle]="myStyle"> </div>
 
-2. Structure Directives:
+### Structure Directives:
   - *ngIF
   - *ngFor
   - [ngSwitch]
 
-
 ## AUTH GUARD
-==========
 Command: ng g guard guards/auth-guard
 Select CanActivate option
 
-
 ## Angular Hooks
-=============
 	0. Constructor
 	1. ngOnChanges() - Triggers when any changes happen in data-bound input properties (Primitive types) 
 	2. ngOnInit() - Triggers once to set data-bound input properties on component load
