@@ -30,6 +30,14 @@ const routes: Routes = [
     loadChildren: () => import('./http-api/http-api.module').then(m => m.HttpApiModule)
   },
   {
+    path: 'http-request', 
+    loadChildren: () => import('./http-request/http-request.module').then(m => m.HttpRequestModule)
+  },
+  {
+    path: 'template-form',
+    loadChildren: () => import('./template-form/template-form.module').then(m => m.TemplateFormModule)
+  },
+  {
     path: '**',
     redirectTo: '/'
   }

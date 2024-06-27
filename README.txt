@@ -1,5 +1,13 @@
 ANGULAR Refreshing
 ==================
+ng new my-app
+ng g m auth --route crud-app --module app.module
+ng g c auth/components/signup --module crud-app
+ng g s crud-app/services/notes
+ng g i crud-app/interfaces/note
+ng g p pipes/append
+ng g g guards/auth-guard
+ng add @angular/material
 
 Commands:
 ===========
@@ -10,35 +18,68 @@ Commands:
 
 Data-bindings:
 ==============
-1. One way data binding - attr binding, class binding, style binding are example of one-way data bindings
+1. Examples of one-way data bindings- 
 isDisabled:boolean = false;
-example: <button [disabled]="isDisabled">Dashboard</button>
+	- Interpolation
+	- Attribute bindings - [attr.disabled], [disabled] = <button [disabled]="isDisabled">Dashboard</button>
+	- Class binding - [class.myClass]="enableMyClassBinding" 
+	- Style binding - [style.color]="myColor"
+	- Event Binding - <input type="submit" (click)="submitThis()" /> and function submitThis() {}
 
 2. Two way data binding - 
-<div>
-  <input [(ngModel)]="title" placeholder="Enter text.." />
-  <p>{{title}}</p>
-</div>
+	<div>
+	<input [(ngModel)]="title" placeholder="Enter text.." />
+	<p>{{title}}</p>
+	</div>
 
-Directives:
-===========
 
-1. Attribute Directives
-myClassName:string = 'add-me';
-<div [ngClass]="myClassName"> </div>
+Angular Directive:
+=================
+1. Component Directive:
+	<app-child></app-child>
 
-myStyle = {color: '#ccc'};
-<div [ngSytle]="myStyle"> </div>
+2. Attribute Directives:
+	myClassName:string = 'add-me';
+	myStyle = {color: '#ccc'};
+	myValue = "Initial value";
 
-2. Structure Directives:
-  - *ngIF
-  - *ngFor
-  - [ngSwitch]
+	- [(ngModel)] - <input [(ngModel)]="myValue" /> 
+	- [ngClass] - <div [ngSytle]="myStyle">Test</div>
+	- [ngStyle] - <div [ngClass]="myClassName">Test</div>
+
+3. Structural Directives:
+	enableBtn = true;
+	posts = ['A', 'B', 'C'];
+	grade = 'A';
+	- *ngIF - <div *ngIf="enableBtn">Submit</div>
+	- *ngFor - <ul *ngFor=let post of posts; let i = index;> <li> {{i}} {{ post }} </li> </ul>
+	- [ngSwitch] - 
+	<div [ngSwitch]="grade">
+		<p *ngSwitchCase="'A'">Excellent</p>
+		<p *ngSwitchCase="'B'">Good</p>
+		<p *ngSwitchDefault>Average</p>
+	</div>
+
+
+PIPES
+=====
+	command - ng g p pipes/append
+	today:number = new Date.now();
+	title: string = "My pipes";
+	currency = 1.232312;
+
+	{{title | uppercase}}
+	{{title | lowercase}}
+
+	{{today}}
+	{{today | date}}
+
+	{{currency | currency }}
+	{{currency | currency : "EUR"}}
 
 
 AUTH GUARD
 ==========
-
 Command: ng g guard guards/auth-guard
 Select CanActivate option
 

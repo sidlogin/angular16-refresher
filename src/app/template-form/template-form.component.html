@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Template Driven Form</h2>
+    <mat-card appearance="outlined">
+        <mat-card-content>
+            <form #signupForm="ngForm" (ngSubmit)="submitForm(signupForm)">
+                <div>
+                    <label for="username"></label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Emter the username"
+                        [(ngModel)]="signUpForm.username"
+                        required=""
+                    />
+                </div>
+                <div>
+                    <label for="email"></label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Emter your email"
+                        [(ngModel)]="signUpForm.email"
+                        required
+                    />
+                </div>
+                <input type="submit" [disabled]="signupForm.invalid" />
+            </form>
+            </mat-card-content>
+        </mat-card>
+</div>
